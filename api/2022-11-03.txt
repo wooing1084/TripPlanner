@@ -1,0 +1,7 @@
+사용할 api :  
+1. Geocoding : 주소 검색 API. 지번, 도로명을 질의어로 사용해서 주소 정보 검색. 검색 결과로 주소 목록과 세부 정보 JSON 형태로 반환.
+   https://api.ncloud-docs.com/docs/ai-naver-mapsgeocoding-geocode
+2. Direcion 5 : 이동간 소요시간, 거리, 예상 유류비, 통행 요금 정보 등..
+   https://api.ncloud-docs.com/docs/ai-naver-mapsdirections-driving
+
+사용형식 : Geocoding으로 위도, 경도 좌표를 JSON 형태로 반환받아, Direction 5로 경로 관련 정보 반환받기.
