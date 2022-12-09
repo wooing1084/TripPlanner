@@ -1,32 +1,23 @@
 import math
 
-
 n = 5
 INF = 999999
 
 # graph[i][j] = graph[j][i] = 점 i와 점 j 사이의 거리
-# graph = [
-#     [0, 20, 28, 30, 0],
-#     [25, 0, 27, 28, 0],
-#     [30, 35, 0, 29, 1000],
-#     [28, 29, 27, 0, 1000],
-#     [0, 0, 1000, 1000, 0]
-# ]
-
 graph = [
     [0, 0, 0, 1000, 1000],
-    [0, 0, 20, 28, 30],
+    [1000, 0, 20, 28, 30],
     [0, 25, 0, 27, 28],
     [1000, 30, 35, 0, 29],
-    [1000, 28, 29, 27, 0],
+    [1000, 280, 29, 27, 0],
 
 ]
-
 
 dp = [[INF] * (1 << n) for _ in range(n)]
 # dp[i][j] : i = 내 위치, j : 아직 방문하지 않은, 방문해야 할 노드 정보
 # 들어가는 값은 남은 점들을 최적 경로로 돌았을 때의 총 거리
 
+path = []
 
 def getDist(Ax, Ay, Bx, By):  # 유클리드 거리 반환
     return round(math.sqrt((Ax - Bx) ** 2 + (Ay - By) ** 2), 3)
@@ -52,14 +43,15 @@ def dfs(start, visited):
 
     return dp[start][visited]
 
-
 def printPath(k, visited):
     # visited 상태에서, 남은 점들을 최적으로 돌 때, 다음으로 방문하는 점을 찾는다.
-    path = []
-    path.append(k)
+    
+    if k != 0: 
+        path.append(k)
 
     if visited == (1 << n) - 1:
-        return k
+        return path
+        
 
     nextvalue = [INF, 0]
     for i in range(n):
@@ -75,8 +67,9 @@ def printPath(k, visited):
     # nextvalue[1]에는 다음 점이 들어 있다
 
     # 반복.
-    return str(nextvalue[1]) + " " + str(printPath(nextvalue[1], visited | (1 << nextvalue[1])))
+    return printPath(nextvalue[1], visited | (1 << nextvalue[1]))
 
 
 print(dfs(0, 1))
 print(printPath(0, 1))
+
