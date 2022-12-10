@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInp
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
 
+from Attributes import Attributes
+
 
 form_class = uic.loadUiType("main.ui")[0]
 form_carInfowindow = uic.loadUiType("carInfo.ui")[0]
@@ -22,12 +24,19 @@ class WindowClass(QMainWindow, form_class):
         self.btn_1.clicked.connect(self.choulbalFunction)
         self.toKyoungyu.clicked.connect(self.btn_main_to_kyoungyu)
         self.btn_2.clicked.connect(self.btn_carInfo)
+        print("main window\n")
+        print(Attributes.addressList)
 
     # imnyukButton이 눌리면 작동할 함수
     def choulbalFunction(self):
         # print("btn_1 Clicked")
         global chulbal
         chulbal = self.imnyukchang.text()
+        
+        if len(Attributes.addressList) != 0:
+            QMessageBox.information(self, '출발지 입력', '출발지가 이미 존재합니다.')
+            return
+        Attributes.addressList.append(chulbal)
 
         # print(chulbal)
         # chulbal은 출발지 저장창
@@ -45,6 +54,10 @@ class WindowClass(QMainWindow, form_class):
     def btn_carInfo(self):
         self.Info = carInfoWindow()
         self.Info.show()
+        
+    def resetbtn(self):
+        QMessageBox.information(self, '출발지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
+        
         
 class carInfoWindow(QDialog, QWidget, form_carInfowindow):
     def __init__(self):
