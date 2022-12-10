@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInp
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
 
-form_thirdwindow = uic.loadUiType("src/dochak.ui")[0]
+form_thirdwindow = uic.loadUiType("dochak.ui")[0]
 
 class thirdwindow(QDialog, QWidget, form_thirdwindow):
     def __init__(self):
