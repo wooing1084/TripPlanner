@@ -91,7 +91,7 @@
     <string>결과 보러가기</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="resetbtn">
+  <widget class="QPushButton" name="undo_Btn">
    <property name="geometry">
     <rect>
      <x>270</x>
