@@ -81,8 +81,8 @@ def get_time(location, carval = '1') :
         results = get_optimal_route(start, goal, carval, option)
         total_distance = results['route']['traoptimal'][0]['summary']['distance']
         total_duration = results['route']['traoptimal'][0]['summary']['duration']
-        list_re[count][0] = total_distance
-        list_re[count][1] = total_duration / 1000
+        list_re[count][0] = total_duration / 1000
+        list_re[count][1] = total_distance
         # print(list_re[count][0], ' ', list_re[count][1]) 
     
     return list_re
