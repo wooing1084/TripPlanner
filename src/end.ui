@@ -24,9 +24,9 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>PushButton</string>
+       <string>결과 보기</string>
       </property>
      </widget>
     </item>
@@ -45,14 +45,14 @@
      </widget>
     </item>
     <item row="8" column="1">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="TotheMAP">
       <property name="text">
        <string>지도 보기</string>
       </property>
      </widget>
     </item>
     <item row="9" column="1">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="to_Start">
       <property name="text">
        <string>처음으로</string>
       </property>
@@ -61,7 +61,7 @@
     <item row="4" column="1">
      <widget class="QLabel" name="label_4">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;2:30&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;84분&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
