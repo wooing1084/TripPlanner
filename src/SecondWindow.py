@@ -4,10 +4,6 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInp
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
 
-
-
-
-
 form_secondwindow = uic.loadUiType("kyoungyu.ui")[0]
 
 class secondwindow(QDialog, QWidget, form_secondwindow):
