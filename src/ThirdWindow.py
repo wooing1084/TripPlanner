@@ -19,7 +19,7 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         self.goBack.clicked.connect(self.btn_kyoungyu_to_main)
 
         self.undo_Btn.clicked.connect(self.UndoFunction)  # Undo 버튼 부분
-        self.totheEnd.clicked.connect()#결과보기 버튼 클릭시 부분
+        self.totheEnd.clicked.connect(self.GoToResult)#결과보기 버튼 클릭시 부분
         print("Destination input window!\n")
         print(Attributes.addressList)
 
@@ -48,3 +48,31 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
             QMessageBox.information(self, '도착지 입력', '리스트가 비어있습니다!')
         else:
             QMessageBox.information(self, '도착지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
+            
+    def GoToResult(self):
+        from test_api import get_time
+        from test_api import make_matrix
+        from TSP_2 import Algorithm
+        
+        Attributes.n = len(Attributes.addressList)
+        
+        value = get_time(Attributes.addressList, '3') # carval은 톨게이트 요금 계산용 차종 정보를 나타내는 코드.
+        result = make_matrix(value, Attributes.n)
+
+        #테스트할때 API호출 횟수가 많으니 한번 쓴거 재사용하자
+        # result = [[[0, 0], [0, 0], [float('inf'), float('inf')], [float('inf'), float('inf')], [float('inf'), float('inf')]], 
+        #           [[0, 0], [0, 0], [3593.688, 33021], [2942.683, 19101], [4649.855, 35813]],
+        #           [[float('inf'), float('inf')], [3302.727, 29687], [0, 0], [2575.093, 16188], [3174.58, 31295]], 
+        #           [[float('inf'), float('inf')], [1613.749, 18121], [1653.306, 14930], [0, 0], [2861.655, 19150]], 
+        #           [[0, 0], [3789.645, 32665], [2731.982, 33745], [3537.67, 18917], [0, 0]]]
+
+        print(result)
+        print("\n")
+
+        alg = Algorithm()
+        alg.n = Attributes.n + 1
+        alg.graph = result
+        alg.dp = [[alg.INF] * (1 << alg.n) for _ in range(alg.n)]
+
+        print(alg.dfs(0,1))
+        print(alg.printPath(0,1))
