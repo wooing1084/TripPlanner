@@ -48,7 +48,7 @@ class Windows(QMainWindow, form_class):
 
     def deal(self):
         all_data = json.loads(
-            '[{"index_Num":"1","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/1.png"}, {"index_Num":"2","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/2.png"}, {"index_Num":"3","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/3.png"}, {"index_Num":"4","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/4.png"}]'
+            '[{"index_Num":"1","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/start_P.png"}, {"index_Num":"2","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_1.png"}, {"index_Num":"3","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_2.png"}, {"index_Num":"4","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_3.png"}, {"index_Num":"5","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_4.png"}, {"index_Num":"6","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_5.png"}, {"index_Num":"7","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/end_P.png"}]'
         )
 
         def get_item_wight(data):
@@ -64,8 +64,8 @@ class Windows(QMainWindow, form_class):
             #
             layout_main = QHBoxLayout() #큰틀 가로박스 레이아웃
             map_l = QLabel()  #이미지 크기
-            map_l.setFixedSize(40, 25)
-            maps = QPixmap(Num_Photo).scaled(40, 25)
+            map_l.setFixedSize(50, 50)
+            maps = QPixmap(Num_Photo).scaled(50, 50)
             map_l.setPixmap(maps)
             #
             layout_right = QVBoxLayout() #오른쪽 세로박스 레이아웃
@@ -85,7 +85,7 @@ class Windows(QMainWindow, form_class):
 
         for Dist_Data in all_data:
             item = QListWidgetItem()  # QListWidgetItem
-            item.setSizeHint(QSize(200, 50))  # QListWidgetItem
+            item.setSizeHint(QSize(200, 80))  # QListWidgetItem
             widget = get_item_wight(Dist_Data)  #
             self.listWidget.addItem(item)  # item
             self.listWidget.setItemWidget(item, widget)  # item  widget
