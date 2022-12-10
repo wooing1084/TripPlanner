@@ -48,7 +48,7 @@ class Windows(QMainWindow, form_class):
 
     def deal(self):
         all_data = json.loads(
-            '[{"index_Num":"1","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/1.png"},{"index_Num":"2","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/2.png"},{"index_Num":"3","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/3.png"},{"index_Num":"4","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/4.png"},{"index_Num":"5","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/5.png"},{"index_Num":"6","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/6.png"},{"index_Num":"7","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/7.png"},{"index_Num":"8","point_Name":"주소","interval_Distance":"구간거리","cumulative_Distance":"누적거리","interval_Time":"구간시간","cumulative_Time":"누적시간","Num_Photo":"icon/8.png"}]'
+            '[{"index_Num":"1","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/1.png"}, {"index_Num":"2","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/2.png"}, {"index_Num":"3","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/3.png"}, {"index_Num":"4","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/4.png"}]'
         )
 
         def get_item_wight(data):
@@ -71,10 +71,10 @@ class Windows(QMainWindow, form_class):
             layout_right = QVBoxLayout() #오른쪽 세로박스 레이아웃
             #
             layout_right_down = QHBoxLayout()  #오른쪽 아래 가로박스 레이아웃
-            layout_right_down.addWidget(QLabel("구간: "+interval_Distance+"KM"))
-            layout_right_down.addWidget(QLabel("누적: "+cumulative_Distance+"KM"))
-            layout_right_down.addWidget(QLabel("구간: "+interval_Time+"분"))
-            layout_right_down.addWidget(QLabel("누적: "+cumulative_Time+"분"))
+            layout_right_down.addWidget(QLabel("구간: "+interval_Distance+" km"))
+            layout_right_down.addWidget(QLabel("누적: "+cumulative_Distance+" km"))
+            layout_right_down.addWidget(QLabel("구간: "+interval_Time+" 분"))
+            layout_right_down.addWidget(QLabel("누적: "+cumulative_Time+" 분"))
             #       ,
             layout_main.addWidget(map_l)  #
             layout_right.addWidget(QLabel(point_Name))  #
