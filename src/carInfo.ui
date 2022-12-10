@@ -52,7 +52,28 @@
      </widget>
     </item>
     <item row="1" column="1" colspan="2">
-     <widget class="QComboBox" name="carType"/>
+     <widget class="QComboBox" name="carType">
+      <item>
+       <property name="text">
+        <string>1종</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2종</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3종</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4종</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item row="2" column="3">
      <widget class="QLabel" name="label_10">
