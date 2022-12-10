@@ -6,6 +6,6 @@ class Attributes:
     #Result path(after algorithm)
     path = []    
     n = 0
-    carType = 0
+    carType = '3'
     fPercent = 0
     pMileage = 0
