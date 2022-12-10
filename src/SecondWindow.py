@@ -88,4 +88,4 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
 
     # undo버트 부르면 작동하는 부분(각 페이지 마다 똑같이 있음)
     def UndoFunction(self):
-
+        print("Undo버튼 눌림")
