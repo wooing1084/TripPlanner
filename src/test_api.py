@@ -108,18 +108,25 @@ def make_matrix(list, dests):
         for j in range(dests + 1):
 
             if i == 0:
-                temp.append(float('inf'))
+                temp.append([float('inf'), float('inf')])
             else:
                 if j == 0:
-                    temp.append(float('inf'))
+                    temp.append([float('inf'), float('inf')])
 
                 elif i == j:
-                    temp.append(0)
+                    temp.append([0, 0])
                 else:
                     temp.append(list[k])
                     k += 1
         
         result.append(temp)
+        
+    result[0][0] = [0,0]
+    result[0][1] = [0,0]
+    result[0][dests] = [0,0]
+    
+    result[1][0] = [0,0]
+    result[dests][0] = [0,0]
     return result
                 
                 
