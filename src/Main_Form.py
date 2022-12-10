@@ -24,7 +24,7 @@ class WindowClass(QMainWindow, form_class):
         self.btn_1.clicked.connect(self.choulbalFunction)
         self.toKyoungyu.clicked.connect(self.btn_main_to_kyoungyu)
         self.btn_2.clicked.connect(self.btn_carInfo)
-        self.undo_Btn.clicked.connect()  # Undo 버튼 부분
+        self.undo_Btn.clicked.connect(self.UndoFunction)  # Undo 버튼 부분
         print("main window\n")
         print(Attributes.addressList)
 
@@ -55,7 +55,10 @@ class WindowClass(QMainWindow, form_class):
     def btn_carInfo(self):
         self.Info = carInfoWindow()
         self.Info.show()
-        
+
+    # undo버트 부르면 작동하는 부분(각 페이지 마다 똑같이 있음)
+     def UndoFunction(self):
+
     def resetbtn(self):
         QMessageBox.information(self, '출발지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
         

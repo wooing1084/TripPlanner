@@ -17,8 +17,8 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
 
         self.btn_1.clicked.connect(self.dochakFunction)
         self.goBack.clicked.connect(self.btn_kyoungyu_to_main)
-        self.undo_Btn.clicked.connect()#Undo 버튼 부분
 
+        self.undo_Btn.clicked.connect(self.UndoFunction)  # Undo 버튼 부분
         self.totheEnd.clicked.connect()#결과보기 버튼 클릭시 부분
         print("Destination input window!\n")
         print(Attributes.addressList)
@@ -41,3 +41,6 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         self.close()  # 클릭시 종료됨.
         self.second = secondwindow()  #
         self.second.show()  # 두번째 창을 닫으면 다시 첫 번째 창이 보여짐짐
+
+    # undo버트 부르면 작동하는 부분(각 페이지 마다 똑같이 있음)
+    def UndoFunction(self):
