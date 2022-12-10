@@ -24,6 +24,7 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
 
         self.goBack.clicked.connect(self.btn_kyoungyu_to_main)
         self.toDochak.clicked.connect(self.btn_main_to_dochak)
+        self.undo_Btn.clicked.connect()  # Undo 버튼 부분
         print("Second window show\n")
         print(Attributes.addressList)
 

@@ -14,8 +14,10 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         self.setupUi(self)
         self.show()
 
+
         self.btn_1.clicked.connect(self.dochakFunction)
         self.goBack.clicked.connect(self.btn_kyoungyu_to_main)
+        self.undo_Btn.clicked.connect()#Undo 버튼 부분
         print("Destination input window!\n")
         print(Attributes.addressList)
 

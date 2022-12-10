@@ -24,6 +24,7 @@ class WindowClass(QMainWindow, form_class):
         self.btn_1.clicked.connect(self.choulbalFunction)
         self.toKyoungyu.clicked.connect(self.btn_main_to_kyoungyu)
         self.btn_2.clicked.connect(self.btn_carInfo)
+        self.undo_Btn.clicked.connect()  # Undo 버튼 부분
         print("main window\n")
         print(Attributes.addressList)
 
