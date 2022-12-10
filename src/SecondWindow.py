@@ -88,4 +88,7 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
 
     # undo버트 부르면 작동하는 부분(각 페이지 마다 똑같이 있음)
     def UndoFunction(self):
-        print("Undo버튼 눌림")
+        if(len(Attributes.addressList) == 0):
+            QMessageBox.information(self, '경유지 입력', '리스트가 비어있습니다!')
+        else:
+            QMessageBox.information(self, '경유지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')

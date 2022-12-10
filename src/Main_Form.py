@@ -7,8 +7,8 @@ from PyQt5 import uic
 from Attributes import Attributes
 
 
-form_class = uic.loadUiType("main.ui")[0]
-form_carInfowindow = uic.loadUiType("carInfo.ui")[0]
+form_class = uic.loadUiType("src/main.ui")[0]
+form_carInfowindow = uic.loadUiType("src/carInfo.ui")[0]
 
 # 화면을 띄우는데 사용되는 Class 선언
 class WindowClass(QMainWindow, form_class):
@@ -55,15 +55,15 @@ class WindowClass(QMainWindow, form_class):
     def btn_carInfo(self):
         self.Info = carInfoWindow()
         self.Info.show()
-
+        
     # undo버트 부르면 작동하는 부분(각 페이지 마다 똑같이 있음)
     def UndoFunction(self):
-        print("Undo버튼 눌림")
+        if(len(Attributes.addressList) == 0):
+            QMessageBox.information(self, '출발지 입력', '리스트가 비어있습니다!')
+        else:
+            QMessageBox.information(self, '출발지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
 
-
-
-    def resetbtn(self):
-        QMessageBox.information(self, '출발지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
+        
         
         
 class carInfoWindow(QDialog, QWidget, form_carInfowindow):
@@ -89,8 +89,9 @@ class carInfoWindow(QDialog, QWidget, form_carInfowindow):
         car_type = self.carType.currentIndex() + 1
         gas_Persent = self.slider_horizontal.value()
         can_go_KM = self.spinBox.value()
-
-        print(car_type)
-        print(gas_Persent)
-        print(can_go_KM)
+        
+        Attributes.carType = car_type
+        Attributes.pMileage = can_go_KM
+        Attributes.fPercent = gas_Persent
+        
         self.close()
