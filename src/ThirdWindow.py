@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInp
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
 
+from Attributes import Attributes
+
 form_thirdwindow = uic.loadUiType("src/dochak.ui")[0]
 
 class thirdwindow(QDialog, QWidget, form_thirdwindow):
@@ -14,6 +16,8 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
 
         self.btn_1.clicked.connect(self.dochakFunction)
         self.goBack.clicked.connect(self.btn_kyoungyu_to_main)
+        print("Destination input window!\n")
+        print(Attributes.addressList)
 
         # imnyukButton이 눌리면 작동할 함수
 
@@ -22,6 +26,7 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         global dochak
         dochak = self.imnyukchang.text()
 
+        Attributes.addressList.append(dochak)
         # print(dochak)
         # dochak 도착지 저장창
         # self.labelindi.setText("출발지가 입력되었습니다. 출발지는: "+chulbal+" 입니다.")
