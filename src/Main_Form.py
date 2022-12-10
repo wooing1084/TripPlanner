@@ -63,6 +63,14 @@ class carInfoWindow(QDialog, QWidget, form_carInfowindow):
 
 
     def Close(self):
-        jong = self.carType.currentText()
-        print(jong)
+        #차종은 car_type
+        #주유 퍼센트는 gas_Persent
+        #주행가능거리 can_go_KM
+        car_type = self.carType.currentIndex() + 1
+        gas_Persent = self.slider_horizontal.value()
+        can_go_KM = self.spinBox.value()
+
+        print(car_type)
+        print(gas_Persent)
+        print(can_go_KM)
         self.close()
