@@ -56,7 +56,7 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         
         Attributes.n = len(Attributes.addressList)
         
-        value = get_time(Attributes.addressList, '3') # carval은 톨게이트 요금 계산용 차종 정보를 나타내는 코드.
+        value = get_time(Attributes.addressList, str(Attributes.carType)) # carval은 톨게이트 요금 계산용 차종 정보를 나타내는 코드.
         result = make_matrix(value, Attributes.n)
 
         #테스트할때 API호출 횟수가 많으니 한번 쓴거 재사용하자
