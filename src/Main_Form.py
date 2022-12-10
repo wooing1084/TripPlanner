@@ -54,6 +54,10 @@ class carInfoWindow(QDialog, QWidget, form_carInfowindow):
         self.finish.clicked.connect(self.Close)
 
 
+    def showHorizontalSliderValue(self) :
+        #Horizontal Slider의 시그널 이용 - Horizontal Slider의 값이 변경되면 Label에 값을 표시
+        self.lbl_horizontal.setText(str(self.slider_horizontal.value()+'%'))
+
 
     def Close(self):
         jong = self.carType.currentText()
