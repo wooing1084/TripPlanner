@@ -51,9 +51,11 @@ class carInfoWindow(QDialog, QWidget, form_carInfowindow):
         super().__init__()
         self.setupUi(self)
 
-        self.carType.currentIndexChanged.connect()
-
         self.finish.clicked.connect(self.Close)
 
+
+
     def Close(self):
+        jong = self.carType.currentText()
+        print(jong)
         self.close()
