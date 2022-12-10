@@ -123,7 +123,7 @@ def make_matrix(list, dests):
         
     result[0][0] = [0,0]
     result[0][1] = [0,0]
-    result[0][dests] = [0,0]
+    #result[0][dests] = [0,0]
     
     result[1][0] = [0,0]
     result[dests][0] = [0,0]
