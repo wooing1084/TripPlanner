@@ -14,4 +14,24 @@ class Attributes:
     print(apiResult)
     print(f"results{apiResult[1]}")
     print(f"addressList{arr}")
-    df.to_pickle("./dummy.pkl")  
+    dff= pd.Series(df)
+    time =[]
+    distance=[]
+    n=5
+    for y in range(n):
+         for x in range(n):
+           time.append (dff[y][x][0])
+           distance.append (dff[y][x][1])
+    
+    dict = {'time': time,
+        'Distance': distance}
+ 
+    # creating a dataframe from dictionary
+    df = pd.DataFrame(dict)
+    a=df.iloc[0:5].reset_index(drop=True)
+    b=df.iloc[5:10].reset_index(drop=True)
+    c=df.iloc[10:15].reset_index(drop=True)
+    d=df.iloc[15:20].reset_index(drop=True)
+    e=df.iloc[20:25].reset_index(drop=True)
+    result = pd.concat([a,b,c,d,e],axis=1 )
+    print(result)
