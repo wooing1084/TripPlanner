@@ -77,14 +77,10 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         alg.graph = result
         alg.dp = [[alg.INF] * (1 << alg.n) for _ in range(alg.n)]
 
-        Attributes.totalDistance = alg.dfs(0,1)
+        alg.dfs(0,1)
         Attributes.path = alg.printPath(0,1)
-        
-        
-        for i in range(Attributes.n - 2):
-            Attributes.totalTime += Attributes.apiResult[Attributes.path[i]][Attributes.path[i + 1]][0]    
+    
             
-        print(Attributes.totalTime) 
         print(Attributes.path)
 
         from resultPage import Windows

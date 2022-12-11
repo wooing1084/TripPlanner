@@ -1,3 +1,4 @@
+from math import floor
 import pandas as pd
 class Attributes:
     # desinations list
@@ -17,9 +18,9 @@ class Attributes:
 
     
     def secToHour(time):
-        h = round(time / 3600)
+        h = floor(time / 3600)
         time %= 3600
-        m = round(time / 60)
+        m = floor(time / 60)
         
         return str(h) + "시간 " + str(m) + "분 "
 
@@ -33,8 +34,8 @@ class Attributes:
         
         src = self.path[0]
         dest = self.path[0]
-        cDist = 0
-        cTime = 0
+        self.totalDistance = 0
+        self.totalTime = 0
 
 
         for i in range(self.n):
@@ -47,23 +48,17 @@ class Attributes:
             else:
                 icon = "icon/Kyoung_" + str(i) +".png"
             
-
-            node = {"index_Num": str(i + 1) ,"point_Name": str(self.addressList[i]) ,"interval_Distance": str(self.apiResult[src][dest][1]), "cumulative_Distance": str(cDist + self.apiResult[src][dest][1]) ,"interval_Time": self.secToHour(self.apiResult[src][dest][0]) ,"cumulative_Time": self.secToHour(cTime + self.apiResult[src][dest][0]) ,"Num_Photo":icon}
+            self.totalDistance += self.apiResult[src][dest][1]
+            self.totalTime += self.apiResult[src][dest][0]
+            node = {"index_Num": str(i + 1) ,"point_Name": str(self.addressList[i]) ,"interval_Distance": str(self.apiResult[src][dest][1]), "cumulative_Distance": str(self.totalDistance) ,"interval_Time": self.secToHour(self.apiResult[src][dest][0]) ,"cumulative_Time": self.secToHour(self.totalTime) ,"Num_Photo":icon}
             
-            cDist += self.apiResult[src][dest][1]
-            cTime += self.apiResult[src][dest][0]
+            
             
             src = dest
             
             nodeInfos.append(node)
         print(nodeInfos)
-        global upTime
-        global updist
-
-        upTime = str(self.secToHour(cTime))
-        updist = str(cDist)
-        print(upTime)
-        print(updist)
+        
         return nodeInfos
             
                 

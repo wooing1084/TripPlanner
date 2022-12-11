@@ -6,10 +6,10 @@ from PyQt5.QtCore import QCoreApplication, QSize
 from PyQt5.QtGui import *
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
-from Attributes import Attributes, upTime, updist
+from Attributes import Attributes
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
-form_class = uic.loadUiType("end.ui")[0]
+form_class = uic.loadUiType("src/end.ui")[0]
 
 # 화면을 띄우는데 사용되는 Class 선언
 class Windows(QMainWindow, form_class):
@@ -49,8 +49,8 @@ class Windows(QMainWindow, form_class):
 
     def deal(self):
         all_data = Attributes.GetResult(Attributes)
-        self.km_dis.setText(Attributes.updist+"km")
-        self.min_time.setText(Attributes.upTime)
+        self.km_dis.setText(str(Attributes.totalDistance)+"km")
+        self.min_time.setText(Attributes.secToHour(Attributes.totalTime))
 
 
 
