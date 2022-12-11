@@ -25,9 +25,15 @@ class Windows(QMainWindow, form_class):
         시그널이 작동할 때 실행될 기능은 보통 이 클래스의 멤버함수로 작성합니다.
         ---------------------------------------------
         """
+
+
     def __init__(self):
         super(Windows, self).__init__()
         self.setupUi(self)
+        # 배경 사진
+        palette = QPalette()
+        palette.setBrush(QPalette.Background, QBrush(QPixmap("icon/back_1.png")))
+        self.setPalette(palette)
         #버튼을 누르면 결과값을 출력
         self.pushButton.clicked.connect(self.deal)
 

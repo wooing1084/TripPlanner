@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInp
                              QMainWindow, QDialog, QMessageBox, QSpinBox)
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
+from PyQt5.QtGui import *
 
 from Attributes import Attributes
 import main_rc
@@ -15,6 +16,11 @@ class WindowClass(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        # 배경 사진
+        palette = QPalette()
+        palette.setBrush(QPalette.Background,QBrush(QPixmap("icon/back_1.png")))
+        self.setPalette(palette)
+
         """
         ---------------------------------------------
         이 부분에 시그널을 입력해야 합니다.

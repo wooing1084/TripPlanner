@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInp
                              QMainWindow, QDialog, QMessageBox, QSpinBox)
 from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
-
+from PyQt5.QtGui import *
 from Attributes import Attributes
 import main_rc
 
@@ -15,7 +15,10 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         super(thirdwindow, self).__init__()
         self.setupUi(self)
         self.show()
-
+        # 배경 사진
+        palette = QPalette()
+        palette.setBrush(QPalette.Background, QBrush(QPixmap("icon/back_1.png")))
+        self.setPalette(palette)
 
         self.btn_1.clicked.connect(self.dochakFunction)
         self.goBack.clicked.connect(self.btn_kyoungyu_to_main)
