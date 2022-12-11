@@ -24,10 +24,12 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
 
         self.goBack.clicked.connect(self.btn_kyoungyu_to_main)
         self.toDochak.clicked.connect(self.btn_main_to_dochak)
+        self.undo_Btn.clicked.connect(self.UndoFunction)  # Undo 버튼 부분
         print("Second window show\n")
         print(Attributes.addressList)
 
     # imnyukButton이 눌리면 작동할 함수
+
     def kyoungyuFunction(self):
         if self.kNum == 10:
             QMessageBox.information(self, '경유지 입력 초과', '더이상 경유지를 입력할 수 없습니다. 도착지 입력을 눌러주세요')
@@ -83,3 +85,10 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
         self.hide()  # 메인윈도우 숨김
         self.third = thirdwindow()  #
         self.third.exec()  # 두번째 창을 닫을 때 까지 기다림
+
+    # undo버트 부르면 작동하는 부분(각 페이지 마다 똑같이 있음)
+    def UndoFunction(self):
+        if(len(Attributes.addressList) == 0):
+            QMessageBox.information(self, '경유지 입력', '리스트가 비어있습니다!')
+        else:
+            QMessageBox.information(self, '경유지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')

@@ -24,6 +24,7 @@ class WindowClass(QMainWindow, form_class):
         self.btn_1.clicked.connect(self.choulbalFunction)
         self.toKyoungyu.clicked.connect(self.btn_main_to_kyoungyu)
         self.btn_2.clicked.connect(self.btn_carInfo)
+        self.undo_Btn.clicked.connect(self.UndoFunction)  # Undo 버튼 부분
         print("main window\n")
         print(Attributes.addressList)
 
@@ -55,8 +56,14 @@ class WindowClass(QMainWindow, form_class):
         self.Info = carInfoWindow()
         self.Info.show()
         
-    def resetbtn(self):
-        QMessageBox.information(self, '출발지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
+    # undo버트 부르면 작동하는 부분(각 페이지 마다 똑같이 있음)
+    def UndoFunction(self):
+        if(len(Attributes.addressList) == 0):
+            QMessageBox.information(self, '출발지 입력', '리스트가 비어있습니다!')
+        else:
+            QMessageBox.information(self, '출발지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
+
+        
         
         
 class carInfoWindow(QDialog, QWidget, form_carInfowindow):
@@ -64,9 +71,27 @@ class carInfoWindow(QDialog, QWidget, form_carInfowindow):
         super().__init__()
         self.setupUi(self)
 
-        self.carType.currentIndexChanged.connect()
+        # Horizontal Slider의 시그널 사용
+        self.slider_horizontal.valueChanged.connect(self.showHorizontalSliderValue)
 
         self.finish.clicked.connect(self.Close)
 
+
+    def showHorizontalSliderValue(self) :
+        #Horizontal Slider의 시그널 이용 - Horizontal Slider의 값이 변경되면 Label에 값을 표시
+        self.lbl_horizontal.setText(str(self.slider_horizontal.value())+'%')
+
+
     def Close(self):
+        #차종은 car_type
+        #주유 퍼센트는 gas_Persent
+        #주행가능거리 can_go_KM
+        car_type = self.carType.currentIndex() + 1
+        gas_Persent = self.slider_horizontal.value()
+        can_go_KM = self.spinBox.value()
+        
+        Attributes.carType = car_type
+        Attributes.pMileage = can_go_KM
+        Attributes.fPercent = gas_Persent
+        
         self.close()

@@ -7,6 +7,7 @@ class Attributes:
     # 3D Adjacent matrix
     apiResult = result
     #Result path(after algorithm)
+<<<<<<< HEAD
     path = []
     
 
@@ -35,3 +36,10 @@ class Attributes:
     e=df.iloc[20:25].reset_index(drop=True)
     result = pd.concat([a,b,c,d,e],axis=1 )
     print(result)
+=======
+    path = []    
+    n = 0
+    carType = '3'
+    fPercent = 0
+    pMileage = 0
+>>>>>>> 417f59984bb958c03b82611cbcde51556754893c
