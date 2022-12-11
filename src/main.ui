@@ -54,7 +54,7 @@
         </size>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;img src=&quot;:/icon/one__.png&quot;width=&quot;620&quot; height=&quot;200&quot;/&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;img src=&quot;:/icon/icon/one__.png&quot;width=&quot;620&quot; height=&quot;200&quot;/&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -315,7 +315,7 @@
   </action>
  </widget>
  <resources>
-  <include location="icon/one.qrc"/>
+  <include location="main.qrc"/>
  </resources>
  <connections/>
 </ui>
