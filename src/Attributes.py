@@ -2,13 +2,19 @@ import pandas as pd
 class Attributes:
     # desinations list
     addressList = []
-    # 3D Adjacent matrix
-    apiResult = []
-    path = []    
-    n = 0
     carType = '3'
     fPercent = 0
     pMileage = 0
+    #--------- Before API
+    # 3D Adjacent matrix
+    apiResult = []
+    #-----------After API
+    #---------- Algorithm
+    n = 0
+    path = []    
+    totalTime = 0
+    totalDistance = 0
+    
     
     def secToHour(time):
         h = round(time / 3600)

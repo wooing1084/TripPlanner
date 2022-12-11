@@ -7,8 +7,8 @@ from PyQt5 import uic
 from Attributes import Attributes
 
 
-form_class = uic.loadUiType("src/main.ui")[0]
-form_carInfowindow = uic.loadUiType("src/carInfo.ui")[0]
+form_class = uic.loadUiType("main.ui")[0]
+form_carInfowindow = uic.loadUiType("carInfo.ui")[0]
 
 # 화면을 띄우는데 사용되는 Class 선언
 class WindowClass(QMainWindow, form_class):
