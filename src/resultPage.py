@@ -1,10 +1,12 @@
 import sys
-import json
+import folium
+import webview
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInputDialog, QHBoxLayout, QVBoxLayout,
                              QMainWindow, QDialog, QMessageBox, QSpinBox, QComboBox, QLabel, QListWidgetItem)
 from PyQt5.QtCore import QCoreApplication, QSize
 from PyQt5.QtGui import *
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
+import main_rc
 
 from Attributes import Attributes
 

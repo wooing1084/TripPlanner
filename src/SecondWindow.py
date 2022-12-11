@@ -5,6 +5,7 @@ from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
 
 from Attributes import Attributes
+import main_rc
 
 
 

@@ -6,6 +6,9 @@ import requests
 import folium
 from urllib.request import Request, urlopen
 import pandas as pd
+import folium
+
+
 # *-- 3개의 주소 geocoding으로 변환한다.(출발지, 도착지, 경유지) --*
 
 
@@ -184,6 +187,55 @@ def make_matrix(list, dests):
     result[dests][0] = [0,0]
     return result
                 
-                
+def get_dis_time(location, carval = '1') :
+    sizeof_input = len(location)
+    print(len(location))
+    list_loc = [[0 for j in range(0, 5)] for i in range(len(location))]
+    temp = [[0 for j in range(0, 2)] for i in range(0, len(location))]
+    point = [[0 for j in range(0, 2)] for i in range(0, len(location))]
+    bigpoint = [0 for i in range(0,2)]
+    smallpoint = [0 for i in range(0,2)]
+    for i in range(0, sizeof_input):
+        temp[i] = get_location(location[i])
+        point[i][0] = float(temp[i][0])
+        point[i][1] = float(temp[i][1])
+        if(i==0):
+            bigpoint[1] = point[i][1]
+            bigpoint[0] = point[i][0]
+            smallpoint[1] = point[i][1]
+            smallpoint[0] = point[i][0]
+        if(point[i][0] > bigpoint[0]):
+            bigpoint[0] = point[i][0]
+        if(point[i][1] > bigpoint[1]):
+            bigpoint[1] = point[i][1]
+        if(point[i][0] < smallpoint[0]):
+            smallpoint[0] = point[i][0]
+        if(point[i][1] < smallpoint[1]):
+            smallpoint[1] = point[i][1]
+        print(i)
+    center = [(smallpoint[1] + bigpoint[1]) / 2, (bigpoint[0] + smallpoint[0]) /2]
+    m = folium.Map(location=center, zoom_start=10)
+    path = []
+    for count in range(0, sizeof_input) :
+        if(count==0): # 처음일 경우
+            list_loc[count][0] = location[0]
+            for i in range (1, 5):
+                list_loc[count][i] = 0
+        else: # 2 ~ n 번째
+            results = get_optimal_route(point[count-1], point[count])
+            path = results['route']['traoptimal'][0]['path'] # 에러발생(in. get_dis_time)
+            location_data = [[0 for col in range(2)] for row in range(len(path)-1)]
+            for i in range (0,len(path) - 1):
+                location_data[i][0] = path[i][1]
+                location_data[i][1] = path[i][0]
+            folium.PolyLine(locations=location_data, tooltip='Polyline').add_to(m)
+            list_loc[count][0] = location[count]
+            list_loc[count][1] = int(results['route']['traoptimal'][0]['summary']['distance']) / 1000   # km 단위 (기본단위는 m, 1000으로 나누었으므로 km 단위. 나머지 값은 소수점으로 나옴.)
+            list_loc[count][2] = list_loc[count-1][2] + list_loc[count][1]
+            list_loc[count][3] = int(results['route']['traoptimal'][0]['summary']['duration']) // 1000  # 초 단위 (기본단위는 ms, 1000으로 나누었으므로 초 단위. 1초보다 작은 값은 버림.)
+            list_loc[count][4] = list_loc[count-1][4] + list_loc[count][3]
+    m.save('save.html')
+    return list_loc
+
             
     
