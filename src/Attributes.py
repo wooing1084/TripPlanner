@@ -47,7 +47,7 @@ class Attributes:
             
             nodeInfos.append(node)
         
-        return nodeInfos
+        return str(nodeInfos)
             
                 
         # creating a dataframe from dictionary
