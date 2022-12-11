@@ -48,17 +48,7 @@ class Windows(QMainWindow, form_class):
     #여기서 부터는 리스트를 띄우는 구간
 
     def deal(self):
-        """
-        all_data = json.loads(
-            '[{"index_Num": "1", "point_Name": "경기 성남시 분당구 중앙공원로 54", "interval_Distance": "0", "cumulative_Distance": "0", "interval_Time": "0시간 0분 0초", "cumulative_Time": "0시간 0분 0초", "Num_Photo": "icon/start_P.png"}, {"index_Num": "2", "point_Name": "경기 성남시 수정구 성남대로 1342", "interval_Distance": "10", "cumulative_Distance": "10", "interval_Time": "0시간 16분 33초", "cumulative_Time": "0시간 16분 33초", "Num_Photo": "icon/end_P.png"}]'
-            #"[{'index_Num': '1', 'point_Name': '경기 성남시 분당구 중앙공원로 54', 'interval_Distance': '0', 'cumulative_Distance': '0', 'interval_Time': '0시간 0분 0초', 'cumulative_Time': '0시간 0분 0초', 'Num_Photo': 'icon/start_P.png'}, {'index_Num': '2', 'point_Name': '경기 성남시 수정구 성남대로 1342', 'interval_Distance': '10', 'cumulative_Distance': '10', 'interval_Time': '0시간 16분 33초', 'cumulative_Time': '0시간 16분 33초', 'Num_Photo': 'icon/end_P.png'}]"
-            #'[{"index_Num":"1","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/start_P.png"}, {"index_Num":"7","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/end_P.png"}]'
-        )
-        """
-        with open("data.json", "r") as AD_json:
-
-            all_data = json.load(AD_json)
-
+        all_data = Attributes.GetResult(Attributes)
 
 
         def get_item_wight(data):
@@ -99,18 +89,3 @@ class Windows(QMainWindow, form_class):
             widget = get_item_wight(Dist_Data)  #
             self.listWidget.addItem(item)  # item
             self.listWidget.setItemWidget(item, widget)  # item  widget
-
-
-if __name__ == "__main__":
-    # QApplication : 프로그램을 실행시켜주는 클래스
-    app = QApplication(sys.argv)
-
-    # Windows의 인스턴스 생성
-    myWindow = Windows()
-
-    # 프로그램 화면을 보여주는 코드
-    myWindow.show()
-
-    # 프로그램을 이벤트루프로 진입시키는(프로그램을 작동시키는) 코드
-    app.exec_()
-

@@ -84,15 +84,8 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         for i in range(Attributes.n - 2):
             Attributes.totalTime += Attributes.apiResult[Attributes.path[i]][Attributes.path[i + 1]][0]    
             
-        print(Attributes.totalTime)
-        
+        print(Attributes.totalTime) 
         print(Attributes.path)
-        print(Attributes.GetResult(Attributes))
-
-        dict = str(Attributes.GetResult(Attributes))
-        print(dict)
-        with open("data.json", "w") as f:
-            json.dump(dict, f, ensure_ascii=False, indent=4)
 
         from resultPage import Windows
         self.close()  # 메인윈도우 숨김
