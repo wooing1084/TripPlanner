@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
+    <width>659</width>
     <height>480</height>
    </rect>
   </property>
@@ -36,7 +36,7 @@
      <number>10</number>
     </property>
     <item>
-     <widget class="QLabel" name="jemok_4">
+     <widget class="QLabel" name="jemok">
       <property name="minimumSize">
        <size>
         <width>640</width>
@@ -74,7 +74,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="imnyukchang_5">
+       <widget class="QLineEdit" name="imnyukchang">
         <property name="minimumSize">
          <size>
           <width>200</width>
