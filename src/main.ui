@@ -304,7 +304,7 @@
      </size>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icon/icon/back_1.png&quot;width=&quot;660&quot; height=&quot;480&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;img src=&quot;:/icon/icon/back_1.png&quot;width=&quot;660&quot; height=&quot;480&quot;/&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <zorder>jemok_2</zorder>
