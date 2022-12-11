@@ -51,13 +51,15 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
             QMessageBox.information(self, '도착지 입력', '' + Attributes.addressList.pop() + ' 가 삭제되었습니다.')
             
     def GoToResult(self):
+        from test_api import get_dis_time
         from test_api import get_time
         from test_api import make_matrix
         from TSP_2 import Algorithm
         
         Attributes.n = len(Attributes.addressList)
         
-        value = get_time(Attributes.addressList, str(Attributes.carType)) # carval은 톨게이트 요금 계산용 차종 정보를 나타내는 코드.
+        value = get_time(Attributes.addressList, Attributes.carType)
+        get_dis_time(Attributes.addressList, Attributes.carType) # carval은 톨게이트 요금 계산용 차종 정보를 나타내는 코드.
         result = make_matrix(value, Attributes.n)
         
         Attributes.apiResult = result
