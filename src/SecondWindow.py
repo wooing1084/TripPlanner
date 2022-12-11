@@ -10,7 +10,7 @@ from Attributes import Attributes
 
 
 
-form_secondwindow = uic.loadUiType("src/kyoungyu.ui")[0]
+form_secondwindow = uic.loadUiType("kyoungyu.ui")[0]
 
 class secondwindow(QDialog, QWidget, form_secondwindow):
     kNum = 0
