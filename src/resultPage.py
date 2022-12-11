@@ -6,6 +6,7 @@ from PyQt5.QtCore import QCoreApplication, QSize
 from PyQt5.QtGui import *
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
+from Attributes import Attributes
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("end.ui")[0]
@@ -47,9 +48,18 @@ class Windows(QMainWindow, form_class):
     #여기서 부터는 리스트를 띄우는 구간
 
     def deal(self):
+        """
         all_data = json.loads(
-            '[{"index_Num":"1","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/start_P.png"}, {"index_Num":"2","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_1.png"}, {"index_Num":"3","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_2.png"}, {"index_Num":"4","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_3.png"}, {"index_Num":"5","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_4.png"}, {"index_Num":"6","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/Kyoung_5.png"}, {"index_Num":"7","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/end_P.png"}]'
+            '[{"index_Num": "1", "point_Name": "경기 성남시 분당구 중앙공원로 54", "interval_Distance": "0", "cumulative_Distance": "0", "interval_Time": "0시간 0분 0초", "cumulative_Time": "0시간 0분 0초", "Num_Photo": "icon/start_P.png"}, {"index_Num": "2", "point_Name": "경기 성남시 수정구 성남대로 1342", "interval_Distance": "10", "cumulative_Distance": "10", "interval_Time": "0시간 16분 33초", "cumulative_Time": "0시간 16분 33초", "Num_Photo": "icon/end_P.png"}]'
+            #"[{'index_Num': '1', 'point_Name': '경기 성남시 분당구 중앙공원로 54', 'interval_Distance': '0', 'cumulative_Distance': '0', 'interval_Time': '0시간 0분 0초', 'cumulative_Time': '0시간 0분 0초', 'Num_Photo': 'icon/start_P.png'}, {'index_Num': '2', 'point_Name': '경기 성남시 수정구 성남대로 1342', 'interval_Distance': '10', 'cumulative_Distance': '10', 'interval_Time': '0시간 16분 33초', 'cumulative_Time': '0시간 16분 33초', 'Num_Photo': 'icon/end_P.png'}]"
+            #'[{"index_Num":"1","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/start_P.png"}, {"index_Num":"7","point_Name":"주소","interval_Distance":"00","cumulative_Distance":"00","interval_Time":"00","cumulative_Time":"00","Num_Photo":"icon/end_P.png"}]'
         )
+        """
+        with open("data.json", "r") as AD_json:
+
+            all_data = json.load(AD_json)
+
+
 
         def get_item_wight(data):
             #
@@ -73,8 +83,8 @@ class Windows(QMainWindow, form_class):
             layout_right_down = QHBoxLayout()  #오른쪽 아래 가로박스 레이아웃
             layout_right_down.addWidget(QLabel("구간: "+interval_Distance+" km"))
             layout_right_down.addWidget(QLabel("누적: "+cumulative_Distance+" km"))
-            layout_right_down.addWidget(QLabel("구간: "+interval_Time+" 분"))
-            layout_right_down.addWidget(QLabel("누적: "+cumulative_Time+" 분"))
+            layout_right_down.addWidget(QLabel("구간: "+interval_Time))
+            layout_right_down.addWidget(QLabel("누적: "+cumulative_Time))
             #       ,
             layout_main.addWidget(map_l)  #
             layout_right.addWidget(QLabel(point_Name))  #

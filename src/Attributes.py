@@ -36,9 +36,44 @@ class Attributes:
         dest = self.path[0]
         cDist = 0
         cTime = 0
-        for i in range(self.n - 1):
+
+
+        for i in range(self.n):
             dest = self.path[i]
-            node = {"index_Num": str(i + 1) ,"point_Name": str(self.addressList[i]) ,"interval_Distance": str(self.apiResult[src][dest][1]), "cumulative_Distance": str(cDist + self.apiResult[src][dest][1]) ,"interval_Time": self.secToHour(self.apiResult[src][dest][0]) ,"cumulative_Time": self.secToHour(cTime + self.apiResult[src][dest][0]) ,"Num_Photo":"icon/start_P.png"}
+
+            if i == self.n - 1:
+                icon = "icon/end_P.png"
+            elif i == 0:
+                icon = "icon/start_P.png"
+            elif i == 1:
+                icon = "icon/Kyoung_1.png"
+            elif i == 2:
+                icon = "icon/Kyoung_2.png"
+            elif i == 3:
+                icon = "icon/Kyoung_3.png"
+            elif i == 4:
+                icon = "icon/Kyoung_4.png"
+            elif i == 5:
+                icon = "icon/Kyoung_5.png"
+            elif i == 6:
+                icon = "icon/Kyoung_6.png"
+            elif i == 7:
+                icon = "icon/Kyoung_7.png"
+            elif i == 8:
+                icon = "icon/Kyoung_8.png"
+            elif i == 9:
+                icon = "icon/Kyoung_9.png"
+            elif i == 10:
+                icon = "icon/Kyoung_10.png"
+            elif i == 11:
+                icon = "icon/Kyoung_11.png"
+            elif i == 12:
+                icon = "icon/Kyoung_12.png"
+
+
+
+
+            node = {"index_Num": str(i + 1) ,"point_Name": str(self.addressList[i]) ,"interval_Distance": str(self.apiResult[src][dest][1]), "cumulative_Distance": str(cDist + self.apiResult[src][dest][1]) ,"interval_Time": self.secToHour(self.apiResult[src][dest][0]) ,"cumulative_Time": self.secToHour(cTime + self.apiResult[src][dest][0]) ,"Num_Photo":str(icon)}
             
             cDist += self.apiResult[src][dest][1]
             cTime += self.apiResult[src][dest][0]

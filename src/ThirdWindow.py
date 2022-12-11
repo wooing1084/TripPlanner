@@ -1,4 +1,5 @@
 import sys
+import json
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QLineEdit, QInputDialog, QHBoxLayout, QVBoxLayout,
                              QMainWindow, QDialog, QMessageBox, QSpinBox)
 from PyQt5.QtCore import QCoreApplication
@@ -87,6 +88,15 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         
         print(Attributes.path)
         print(Attributes.GetResult(Attributes))
-        
+
+        dict = str(Attributes.GetResult(Attributes))
+        print(dict)
+        with open("data.json", "w") as f:
+            json.dump(dict, f, ensure_ascii=False, indent=4)
+
+        from resultPage import Windows
+        self.close()  # 메인윈도우 숨김
+        self.result = Windows()  #
+        self.result.show()
         
         
