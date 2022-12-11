@@ -1,45 +1,56 @@
-from test2 import result
-from test2 import arr
 import pandas as pd
 class Attributes:
     # desinations list
-    addressList = arr
+    addressList = []
     # 3D Adjacent matrix
-    apiResult = result
-    #Result path(after algorithm)
-<<<<<<< HEAD
-    path = []
-    
-
-    df=pd.Series(result)
-    print(apiResult)
-    print(f"results{apiResult[1]}")
-    print(f"addressList{arr}")
-    dff= pd.Series(df)
-    time =[]
-    distance=[]
-    n=5
-    for y in range(n):
-         for x in range(n):
-           time.append (dff[y][x][0])
-           distance.append (dff[y][x][1])
-    
-    dict = {'time': time,
-        'Distance': distance}
- 
-    # creating a dataframe from dictionary
-    df = pd.DataFrame(dict)
-    a=df.iloc[0:5].reset_index(drop=True)
-    b=df.iloc[5:10].reset_index(drop=True)
-    c=df.iloc[10:15].reset_index(drop=True)
-    d=df.iloc[15:20].reset_index(drop=True)
-    e=df.iloc[20:25].reset_index(drop=True)
-    result = pd.concat([a,b,c,d,e],axis=1 )
-    print(result)
-=======
+    apiResult = []
     path = []    
     n = 0
     carType = '3'
     fPercent = 0
     pMileage = 0
->>>>>>> 417f59984bb958c03b82611cbcde51556754893c
+    
+    def secToHour(time):
+        h = round(time / 3600)
+        time %= 3600
+        m = round(time / 60)
+        s = time % 60
+        
+        return str(h) + "시간 " + str(m) + "분 " + str(s) + "초"
+
+    
+    def GetResult(self):
+        print(self.apiResult)
+        print(f"addressList{self.addressList}")
+        
+        nodeInfos = []
+        
+        
+        src = self.path[0]
+        dest = self.path[0]
+        cDist = 0
+        cTime = 0
+        for i in range(self.n - 1):
+            dest = self.path[i]
+            node = {"index_Num": str(i + 1) ,"point_Name": str(self.addressList[i]) ,"interval_Distance": str(self.apiResult[src][dest][1]), "cumulative_Distance": str(cDist + self.apiResult[src][dest][1]) ,"interval_Time": self.secToHour(self.apiResult[src][dest][0]) ,"cumulative_Time": self.secToHour(cTime + self.apiResult[src][dest][0]) ,"Num_Photo":"icon/start_P.png"}
+            
+            cDist += self.apiResult[src][dest][1]
+            cTime += self.apiResult[src][dest][0]
+            
+            src = dest
+            
+            nodeInfos.append(node)
+        
+        return nodeInfos
+            
+                
+        # creating a dataframe from dictionary
+        # df = pd.DataFrame(dict)
+        # a=df.iloc[0:5].reset_index(drop=True)
+        # b=df.iloc[5:10].reset_index(drop=True)
+        # c=df.iloc[10:15].reset_index(drop=True)
+        # d=df.iloc[15:20].reset_index(drop=True)
+        # e=df.iloc[20:25].reset_index(drop=True)
+        # result = pd.concat([a,b,c,d,e],axis=1 )
+        # print(result)
+

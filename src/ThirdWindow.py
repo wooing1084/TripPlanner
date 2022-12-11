@@ -58,6 +58,8 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         
         value = get_time(Attributes.addressList, str(Attributes.carType)) # carval은 톨게이트 요금 계산용 차종 정보를 나타내는 코드.
         result = make_matrix(value, Attributes.n)
+        
+        Attributes.apiResult = result
 
         #테스트할때 API호출 횟수가 많으니 한번 쓴거 재사용하자
         # result = [[[0, 0], [0, 0], [float('inf'), float('inf')], [float('inf'), float('inf')], [float('inf'), float('inf')]], 
@@ -74,5 +76,10 @@ class thirdwindow(QDialog, QWidget, form_thirdwindow):
         alg.graph = result
         alg.dp = [[alg.INF] * (1 << alg.n) for _ in range(alg.n)]
 
-        print(alg.dfs(0,1))
-        print(alg.printPath(0,1))
+        alg.dfs(0,1)
+        Attributes.path = alg.printPath(0,1)
+        print(Attributes.path)
+        print(Attributes.GetResult(Attributes))
+        
+        
+        
