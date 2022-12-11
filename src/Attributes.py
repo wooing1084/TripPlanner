@@ -20,9 +20,8 @@ class Attributes:
         h = round(time / 3600)
         time %= 3600
         m = round(time / 60)
-        s = time % 60
         
-        return str(h) + "시간 " + str(m) + "분 " + str(s) + "초"
+        return str(h) + "시간 " + str(m) + "분 "
 
     
     def GetResult(self):
