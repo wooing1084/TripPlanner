@@ -5,7 +5,7 @@ from PyQt5.QtCore import QCoreApplication
 from PyQt5 import uic
 
 from Attributes import Attributes
-
+import main_rc
 
 form_class = uic.loadUiType("main.ui")[0]
 form_carInfowindow = uic.loadUiType("carInfo.ui")[0]
