@@ -14,7 +14,7 @@ class Attributes:
     path = []    
     totalTime = 0
     totalDistance = 0
-    
+
     
     def secToHour(time):
         h = round(time / 3600)
@@ -57,7 +57,13 @@ class Attributes:
             
             nodeInfos.append(node)
         print(nodeInfos)
-        
+        global upTime
+        global updist
+
+        upTime = str(self.secToHour(cTime))
+        updist = str(cDist)
+        print(upTime)
+        print(updist)
         return nodeInfos
             
                 

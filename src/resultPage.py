@@ -6,7 +6,7 @@ from PyQt5.QtCore import QCoreApplication, QSize
 from PyQt5.QtGui import *
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
-from Attributes import Attributes
+from Attributes import Attributes, upTime, updist
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("end.ui")[0]
@@ -49,6 +49,9 @@ class Windows(QMainWindow, form_class):
 
     def deal(self):
         all_data = Attributes.GetResult(Attributes)
+        self.km_dis.setText(Attributes.updist+"km")
+        self.min_time.setText(Attributes.upTime)
+
 
 
         def get_item_wight(data):
