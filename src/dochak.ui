@@ -84,7 +84,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btn_5">
+       <widget class="QPushButton" name="btn_1">
         <property name="minimumSize">
          <size>
           <width>100</width>
@@ -171,7 +171,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="undo_Btn_4">
+       <widget class="QPushButton" name="undo_Btn">
         <property name="text">
          <string>초기화</string>
         </property>
