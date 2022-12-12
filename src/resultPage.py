@@ -41,7 +41,7 @@ class Windows(QMainWindow, form_class):
         #TotheMAP은 맵을 보여주기 위한 맵뷰
         self.TotheMAP.clicked.connect(self.MapView)
         #to_Start은 초기화면으로 돌아가기
-        self.to_Start.clicked.connect(self.reset_btn)
+        #self.to_Start.clicked.connect(self.reset_btn)
 
 
     def MapView(self):
