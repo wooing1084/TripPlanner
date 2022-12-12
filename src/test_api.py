@@ -215,6 +215,8 @@ def get_dis_time(location, carval = '1') :
         print(i)
     center = [(smallpoint[1] + bigpoint[1]) / 2, (bigpoint[0] + smallpoint[0]) /2]
     m = folium.Map(location=center, zoom_start=10)
+    for i in range(0, sizeof_input):
+        folium.Marker([point[i][1], point[i][0]], popup=location[i]).add_to(m)
     path = []
     for count in range(0, sizeof_input) :
         if(count==0): # 처음일 경우
@@ -236,6 +238,3 @@ def get_dis_time(location, carval = '1') :
             list_loc[count][4] = list_loc[count-1][4] + list_loc[count][3]
     m.save('save.html')
     return list_loc
-
-            
-    
