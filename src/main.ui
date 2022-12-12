@@ -261,7 +261,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>초기화</string>
+          <string>Undo</string>
          </property>
         </widget>
        </item>

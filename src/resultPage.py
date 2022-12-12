@@ -48,8 +48,8 @@ class Windows(QMainWindow, form_class):
         from test_api import show_html
         show_html()
 
-    def reset_btn(self):
-        print("초기화 버튼이 클릭되었습니다.")
+    #def reset_btn(self):
+    #    print("초기화 버튼이 클릭되었습니다.")
 
 
     #####

@@ -179,7 +179,7 @@
       <item>
        <widget class="QPushButton" name="undo_Btn">
         <property name="text">
-         <string>초기화</string>
+         <string>Undo</string>
         </property>
        </widget>
       </item>
